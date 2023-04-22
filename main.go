@@ -1,12 +1,9 @@
 package main
 
 import (
-
-	
 	"log"
 	"net/http"
-	
-	
+	"os"
 	
 )
 
@@ -18,6 +15,13 @@ func dash(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	port := os.Getenv("HTTP_PLATFORM_PORT")
+
+	if port =="" {
+		port = "8080"
+	}
+
 	fs := http.FileServer(http.Dir("css"))
 	http.Handle("/css/", http.StripPrefix("/css/", fs))
 
