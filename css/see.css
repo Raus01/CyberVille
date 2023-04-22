@@ -3,6 +3,16 @@ body {
 	background-image: url('see.jpg');
 	background-size: cover;
 	background-position: center;
+   
+}
+
+form {
+    width: 450px;
+    height: 100px;
+  }
+  td {
+  width: 200px;
+  height: 100px;
 }
 
 header {
