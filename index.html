@@ -44,11 +44,18 @@
 			}
 		});
 
-		loginForm.addEventListener('submit', (event) => {
-			event.preventDefault();
+		loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-			// Perform form validation
-			if (usernameField.value.trim() === '') {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === 'admin' && password === 'admin') {
+      window.location.href = '/admin';
+    } else {
+      alert('Invalid username or password.');
+    }
+    if (usernameField.value.trim() === '') {
 				alert('Please enter a username.');
 				return;
 			}
@@ -57,28 +64,21 @@
 				alert('Please enter a password.');
 				return;
 			}
-
-			// Send login request to the server
-			fetch('/login', {
-				method: 'POST',
-				body: new FormData(loginForm),
-			})
-				.then(response => {
-					if (response.ok) {
-						alert('Login successful!');
-						// Redirect to the dashboard page
-						window.location.href = '/dash';
-					} else {
-						alert('Invalid username or password.');
-					}
-				})
-				.catch(error => {
-					alert('An error occurred while logging in.');
-					console.error(error);
-				});
-		});
+  });
 
 
+    </script>
+    <script>
+        (function(d, w, c) {
+            w.SibConversationsID = '6443bb21123edf2e83064d14';
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.sendinblue.com/sib-conversations.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'SibConversations');
     </script>
 </body>
 </html>
