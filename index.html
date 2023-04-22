@@ -1,66 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Website</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
+	<title>My Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="landing-page">
-    <h1>Welcome to My Website</h1>
-    <p>This is the landing page of my website. You can add some information about your website or business here.</p>
-    <p>When you're ready to log in, click the button below.</p>
-    <button id="login-button">Log In</button>
-  </section>
-  <section class="login-page hidden">
-    <h1>Log In to My Website</h1>
-    <form id="login-form">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      <br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      <br>
-      <button type="submit">Log In</button>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<h1>Welcome to my website</h1>
+		<p>Here's some content for the landing page.</p>
+        <button id="login-button">Login</button>
+	</main>
+    <form id="login-form" style="display: none;">
+        <label for="username">Username:</label>
+			<input type="text" id="username" name="username" required>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+			<button type="submit">Login</button>
+        
     </form>
-  </section>
-  <footer>
-    <p>&copy; 2023 My Website. All rights reserved.</p>
-  </footer>
-</body>
-<script>
+	<footer>
+		<p>Copyright © 2023</p>
+	</footer>
+    <script>
+        const loginButton = document.getElementById('login-button');
+const loginForm = document.getElementById('login-form');
 
-$(document).ready(function() {
-  // Hide the login page by default
-  $('.login-page').addClass('hidden');
-  
-  // Show the login page and hide the landing page when the "Log In" button is clicked
-  $('#login-button').click(function() {
-    $('.landing-page').addClass('hidden');
-    $('.login-page').removeClass('hidden');
-  });
-  
-  // Show the landing page and hide the login page when the "Cancel" button is clicked
-  $('#cancel-button').click(function() {
-    $('.login-page').addClass('hidden');
-    $('.landing-page').removeClass('hidden');
-  });
-  
-  // Submit the login form when the "Log In" button is clicked
-  $('#login-form').submit(function(event) {
-    event.preventDefault();
-    // Add your login code here
-  });
+loginButton.addEventListener('click', () => {
+	if (loginForm.style.display === 'none') {
+		loginForm.style.display = 'block';
+	} else {
+		loginForm.style.display = 'none';
+	}
 });
-</script>
+    </script>
+</body>
 </html>
