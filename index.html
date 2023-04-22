@@ -51,7 +51,9 @@
     const password = document.getElementById('password').value;
 
     if (username === 'admin' && password === 'admin') {
-      window.location.href = '/admin';
+      window.location.href = 'admin.html';
+    } else if (username === 'user' && password === 'user') {
+      window.location.href = 'user.html';
     } else {
       alert('Invalid username or password.');
     }

@@ -13,16 +13,20 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 func ad(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "admin.html")
 }
+func us(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "user.html")
+}
 
 func main() {
 
 	fs := http.FileServer(http.Dir("css"))
 	http.Handle("/css/", http.StripPrefix("/css/", fs))
 
-
+	//20.91.189.150
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/admin", ad)
-	log.Println("Server started on: http://20.91.0.189:8000/")
+	http.HandleFunc("/user", us)
+	log.Println("Server started on: http://20.91.189.150:8000/")
 	//err := http.ListenAndServe(":8000", context.ClearHandler(http.DefaultServeMux)) // context to prevent memory leak
 	err := http.ListenAndServe(":8000", nil)
 	if err != nil {
