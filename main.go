@@ -23,16 +23,14 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", fs))
 
 	//20.91.189.150
-	address := "20.91.189.150:8000"
-
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/admin", ad)
 	http.HandleFunc("/user", us)
-	log.Printf("Server started on: http://%s\n", address)
+	log.Println("Server started on: http://20.91.189.150:8000")
 	//err := http.ListenAndServe(":8000", context.ClearHandler(http.DefaultServeMux)) // context to prevent memory leak
-	err := http.ListenAndServe(address, nil)
+	err := http.ListenAndServe(":8000", nil)
 	if err != nil {
-		log.Fatal("Error starting server:", err)
+		log.Fatal("500 Internal server error", http.StatusInternalServerError) // internal server error
 		return
 	}
 }
