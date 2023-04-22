@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/see.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,17 +18,23 @@
 		</nav>
 	</header>
 	<main>
-		<h3>Welcome Admin answer the questions from the chatbot to get the best recommendation</h3>
-		<h2>Assign Courses</h2>
+		<h3 style="text-align: center;">Welcome Admin answer the questions from the chatbot to get the best recommendation</h3>
+		<h2 style="text-align: center;">Assign Courses</h2>
 		<table>
 			<tr>
 				<th>User</th>
-				<th>Courses</th>
+				<th>Course</th>
+        <th>Progress</th> 
 				<th>Assign Courses</th>
 			</tr>
 			<tr>
 				<td>Pedro</td>
-				<td>Module 1, Module 2</td>
+				<td>Module 1</td>
+        <td>
+					<div class="progress-bar-container">
+						<div class="progress-bar" style="width: 100%;">60%</div>
+					</div>
+				</td>
 				<td>
 					<form>
 						<select name="course">
@@ -39,10 +45,16 @@
 						<button type="submit">Assign Course</button>
 					</form>
 				</td>
+        
 			</tr>
 			<tr>
 				<td>Segro</td>
-				<td>Module 2, Module 4</td>
+				<td>Module 2</td>
+        <td>
+					<div class="progress-bar-container">
+						<div class="progress-bar" style="width: 100%;">60%</div>
+					</div>
+				</td>
 				<td>
 					<form>
 						<select name="course">
@@ -56,7 +68,12 @@
 			</tr>
 			<tr>
 				<td>Gregor</td>
-				<td>Module 1, Module 3</td>
+				<td>Module 1</td>
+        <td>
+					<div class="progress-bar-container">
+						<div class="progress-bar" style="width: 100%;">60%</div>
+					</div>
+				</td>
 				<td>
 					<form>
 						<select name="course">
@@ -73,20 +90,7 @@
             <button id="generate-course-btn">Generate Recommended Course</button>
           </td>
 	</main>
-	<footer>
-		<p>&copy; 2023</p>
-	</footer>
-    <script>
-
-		const generateCourseBtn = document.getElementById('generate-course-btn');
-		const recommendedCoursesDiv = document.getElementById('recommended-courses');
-		const courses = ['Module 1', 'Module 2', 'Module 3', 'Module 4', 'Module 5'];
-
-		
-
-        
-        
-	</script>
+	
 </body>
 <script>
     (function(d, w, c) {
