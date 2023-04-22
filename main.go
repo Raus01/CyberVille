@@ -23,7 +23,7 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", fs))
 
 	//20.91.189.150
-	address := "127.0.0.1:8000"
+	address := "20.91.189.150:8000"
 
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/admin", ad)
