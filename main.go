@@ -16,6 +16,10 @@ func ad(w http.ResponseWriter, r *http.Request) {
 func us(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "user.html")
 }
+func tra(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "train.html")
+}
+
 
 func main() {
 
@@ -26,6 +30,7 @@ func main() {
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/admin", ad)
 	http.HandleFunc("/user", us)
+	http.HandleFunc("/train", tra)
 	log.Println("Server started on: http://20.91.189.150:8000")
 	//err := http.ListenAndServe(":8000", context.ClearHandler(http.DefaultServeMux)) // context to prevent memory leak
 	err := http.ListenAndServe(":8000", nil)

@@ -3,6 +3,7 @@
 <head>
 	<title>User Page</title>
 	<link rel="stylesheet" href="/css/mee.css">
+    
 </head>
 <body>
 	<header>
@@ -18,7 +19,12 @@
 		<div class="model-container">
             <h2>Select an assigned cyber security course:</h2>
             <ol class="model-list">
-                <li><a href="#">Firewalls <span>(14%)</span></a></li>
+                <li><a href="/train" onclick="delayRedirect(event)">Basic Firewall Setup</a></li>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <p id="message"></p>
+                    </div>
+                  </div>
                 <li><a href="#">Intrusion Detection Systems <span>(74%)</span></a></li>
                 <li><a href="#">Virtual Private Networks <span>(24%)</span></a></li>
                 
@@ -26,8 +32,56 @@
         </div>
         
 	</main>
-	
+    
+	<style>
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+          background-color: #fefefe;
+          margin: 15% auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 30%;
+          text-align: center;
+        }
+        </style>
     <script>
+        function delayRedirect(event) {
+  event.preventDefault(); // Prevent the link from redirecting immediately
+  
+  setTimeout(function() {
+    // Show the modal dialog box with the message
+    var modal = document.getElementById("myModal");
+    var message = document.getElementById("message");
+    message.innerText = "Creating Test";
+    modal.style.display = "block";
+    
+    // Redirect after 5 seconds
+    setTimeout(function() {
+      window.location.href = event.target.href;
+    }, 3000);
+  }, 0); // Set a delay of 0ms to allow the modal to render before showing the message
+}
+
+// Close the modal dialog box when the user clicks outside of it
+var modal = document.getElementById("myModal");
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
         (function(d, w, c) {
             w.SibConversationsID = '6443bb21123edf2e83064d14';
             w[c] = w[c] || function() {
@@ -42,7 +96,18 @@
     
 </body>
 <style>
-    
+    .progress-bar {
+  height: 20px;
+  background-color: #ddd;
+  margin-top: 5px;
+}
+
+.progress-bar::before {
+  content: "";
+  display: block;
+  height: 100%;
+  background-color: #007bff;
+}
 	
     .model-container {
         background-color: #F5F5F5;
